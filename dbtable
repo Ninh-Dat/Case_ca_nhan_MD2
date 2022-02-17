@@ -1,0 +1,18 @@
+CREATE DATABASE `iNosts`;
+use iNosts;
+create table notes
+(
+    id      int PRIMARY KEY AUTO_INCREMENT,
+    title   varchar(500),
+    content text
+);
+
+create table note_type(
+    id int PRIMARY KEY AUTO_INCREMENT,
+    name varchar(100),
+    description varchar(100)
+);
+alter table notes
+    add type_id int;
+alter table notes
+add foreign key (type_id) references note_type(id);
